@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Create new assignment directory
+
+script_dir=$(dirname "0")
+cell_n="$(printf %02d $1)"
+ex_n="$(printf %02d $2)"
+assignment_dir="$script_dir/cell$cell_n/ex$ex_n"
+mkdir -p "$assignment_dir"
+assignment_file="$assignment_dir/$3"
+touch "$assignment_file"
+echo "#!/usr/bin/env python3" >> "$assignment_file"
+chmod +x "$assignment_file"

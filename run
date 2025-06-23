@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Run assignment
+
+script_dir=$(dirname "0")
+cell_n="$(printf %02d $1)"
+ex_n="$(printf %02d $2)"
+assignment_dir="$script_dir/cell$cell_n/ex$ex_n"
+shift 3
+assignment_file="$assignment_dir/$(ls $assignment_dir)"
+$assignment_file $@

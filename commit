@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Commit assignment
+
+script_dir=$(dirname "0")
+cell_n="$(printf %02d $1)"
+ex_n="$(printf %02d $2)"
+assignment_dir="$script_dir/cell$cell_n/ex$ex_n"
+git add "$assignment_dir"
+git commit -m "Cellule$1.$2"
+
