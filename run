@@ -9,4 +9,4 @@ assignment_dir="$script_dir/cell$cell_n/ex$ex_n"
 assignment_file="$assignment_dir/$(ls $assignment_dir)"
 shift
 shift
-$assignment_file $@
+$assignment_file "$@"
