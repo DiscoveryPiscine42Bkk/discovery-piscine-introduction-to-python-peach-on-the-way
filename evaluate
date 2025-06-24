@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+script_dir=$(dirname "0")
+
+cell_n="$(printf %02d $1)"
+ex_n="$(printf %02d $2)"
+assignment_dir="$script_dir/cell$cell_n/ex$ex_n"
+assignment_file="$(ls $assignment_dir)"
+
+session_name="Evaluate-Cellule$1_$2"
+tmux new-session -d -s "$session_name" -n "Evaluate-Cellule$1_$2" -c "$assignment_dir"
+tmux split-window -v -t "$session_name" -c "$assignment_dir"
+tmux send-keys -t "$session_name":1.1 "exec hx $assignment_file" Enter
+tmux send-keys -t "$session_name":1.2 "clear" Enter
+tmux select-pane -t "$session_name":1.1
+tmux switchc -t "$session_name"
