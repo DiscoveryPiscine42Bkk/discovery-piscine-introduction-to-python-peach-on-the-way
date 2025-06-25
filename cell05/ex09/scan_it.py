@@ -27,4 +27,7 @@ if len(sys.argv) - 1 != 2:
 keyword = sys.argv[1]
 string = sys.argv[2]
 result = re.findall(keyword, string)
-print(len(result))
+if result:
+    print(len(result))
+else:
+    print("none")
